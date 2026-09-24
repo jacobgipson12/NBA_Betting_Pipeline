@@ -12,10 +12,11 @@ Safe to interrupt and re-run: game_logs is skipped if already present (unless
 
 import argparse
 
-from . import settings, game_logs, per_game_details, travel_timezone
+from . import settings, game_logs, per_game_details, travel_timezone, odds
 
 
 def run(seasons, datasets, fresh: bool):
+    espn_spreads = None
     for season in seasons:
         print(f"=== {season} ===")
         if "game_logs" in datasets:
@@ -24,6 +25,10 @@ def run(seasons, datasets, fresh: bool):
             per_game_details.import_per_game_details(season)
         if "travel_timezone" in datasets:
             travel_timezone.import_travel_timezone(season)
+        if "odds" in datasets:
+            if espn_spreads is None:
+                espn_spreads = odds.fetch_espn_closing_spreads()
+            odds.import_closing_spreads(season, espn_spreads)
 
 
 def main():

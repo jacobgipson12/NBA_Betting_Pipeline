@@ -1,3 +1,5 @@
 pandas
 nba_api
 tqdm
+requests
+pyarrow

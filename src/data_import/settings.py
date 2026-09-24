@@ -23,4 +23,4 @@ REQUEST_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 5
 RETRY_BACKOFF_BASE_SECONDS = 2.0
 
-DATASETS = ["game_logs", "per_game_details", "travel_timezone"]
+DATASETS = ["game_logs", "per_game_details", "travel_timezone", "odds"]

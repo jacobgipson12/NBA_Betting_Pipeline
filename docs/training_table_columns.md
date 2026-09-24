@@ -98,6 +98,17 @@ feature (known before tip-off), not a rolling average.
 | `AWAY_REST` | Full days off between the away team's previous game and this one |
 | `REST_DIFF` | `HOME_REST - AWAY_REST`. Positive means the home team is better rested. |
 
+## Betting market
+
+Not part of the `HOME_<STAT>_AVG<N>` pattern above — a pre-game market signal
+(known before tip-off, from closing sportsbook lines), not a rolling average
+of box-score stats. Sourced separately from the NBA stats API by
+`src/data_import/odds.py`.
+
+| Column | Definition |
+|---|---|
+| `HOME_SPREAD` | Closing point spread, from the home team's perspective. Negative means the home team was favored (e.g. `-2` = home favored by 2); positive means the home team was the underdog. |
+
 ## Outcome columns
 
 Actual results of the game itself (not averages) — these are the prediction
